@@ -45,4 +45,8 @@ Transform file:
 
   	
 	 saxon-xslt -o mysample.tcx mysample.xml  nike+totcx.xsl
+	
+Author
+---------
+Thomas Mølhave - http://moelhave.com
 
