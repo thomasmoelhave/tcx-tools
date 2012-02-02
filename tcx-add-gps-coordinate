@@ -1,0 +1,26 @@
+#!/bin/bash
+
+usage () {
+	echo "Usage: $0 [input tcx file] [output tcx file]";
+}
+
+input=$1
+output=$2
+LATITUDE=$3
+LONGITUDE=$4
+
+if [ ! -f "$input" ]
+then
+        echo "Input file $input does not exist, or is not readable.";
+		usage;
+		exit;
+fi
+
+if [ -z "$output" ]
+then
+        echo "Output filename not provided.";
+		usage;
+		exit;
+fi
+
+saxon-xslt -o $output $input  tcx-add-gps-coordinate.xsl LATITUDE=$LATITUDE LONGITUDE=$LONGITUDE
