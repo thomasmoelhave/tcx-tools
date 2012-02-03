@@ -64,7 +64,7 @@ It is also possible to get the xml files of past runs from the Nike+
 website, but it involves some trickery.
 
 
-** Running **
+**Running**
 
 
 	./nike+totcx <input xml file> <output tcx file> 
@@ -78,7 +78,7 @@ to the tcx file. Doing this will coerce Endomondo to display the heart
 rate graph that it otherwise wouldn't display.
 
 
-** Running **
+**Running**
 
 	
 	./tcx-add-gps-coordinate <input tcx file> <output tcx file> <lat> <long>
@@ -95,7 +95,7 @@ calorie) information from the supplied tcx file, but keeps everything
 else.
 
 
-** Running **
+**Running**
 
 
 	./tcx-strip-heart-rate <input tcx file> <output tcx file>
