@@ -21,4 +21,4 @@ then
 		exit;
 fi
 
-saxon-xslt -o $output $input  tcx-strip-heartrate.xsl
+saxon-xslt -o $output $input  tcx-strip-heart-rate.xsl
