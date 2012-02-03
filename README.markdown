@@ -14,9 +14,9 @@ files such as:
      existing TCX file.
 
 These tools were written to make Endomondo a little more flexible. For
-instance, heart rate data from indoor workouts is not supported - but
+instance, Endomondo does not display a heart rate graph for workouts that without positioning information. However, by
 adding a single GPS coordinate to the file (such as the location of
-the gym) is enough to convince Endomondo to display the heart rate
+the gym) you can convince Endomondo to display the heart rate
 data.
 
 Installation
