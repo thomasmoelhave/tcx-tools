@@ -47,13 +47,12 @@
               <Track>
 
                   <xsl:choose>
-                     <!-- Make sure we have a time sampled distance track -->
                      <xsl:when test="extendedDataList/extendedData[@dataType='distance' and @intervalType='time' and @intervalUnit='s']">
 
 		       <xsl:variable name="formatted_interval">PT10S</xsl:variable>
 
                         <xsl:call-template name="distance_point">
-                           <xsl:with-param name="csvdata" select="extendedDataList/extendedData"/>
+                           <xsl:with-param name="csvdata" select="extendedDataList/extendedData[@dataType='distance' and @intervalType='time' and @intervalUnit='s']"/>
 			   <xsl:with-param name="interval" select="$formatted_interval"/>
                            <xsl:with-param name="time" select="$st"/>
                         </xsl:call-template>
@@ -69,12 +68,6 @@
       </TrainingCenterDatabase>
    </xsl:template>
 
-   <xsl:function name="foo:dateadd">
-     <xsl:param name="interval"/>
-     <xsl:param name="time"/>
-     <xsl:value-of select="hej"/>
-   </xsl:function>
-
    <!-- Recursive template to extract sample data -->
    <xsl:template name="distance_point">
       <xsl:param name="csvdata"/>
@@ -85,7 +78,7 @@
          <xsl:when test="contains($csvdata, ',')">
 	   
             <Trackpoint>
-	      <DistanceMeters><xsl:value-of select="substring-before($csvdata, ',') * 1000"/></DistanceMeters>
+	      <DistanceMeters><xsl:value-of select="number(substring-before($csvdata, ',')) * 1000"/></DistanceMeters>
 	      <Time><xsl:value-of select="$time"/></Time>
             </Trackpoint>
 	    
@@ -107,7 +100,7 @@
 
          <xsl:otherwise>
 	   <Trackpoint>
-	      <DistanceMeters><xsl:value-of select="$csvdata*1000"/></DistanceMeters>
+	      <DistanceMeters><xsl:value-of select="number($csvdata)*1000"/></DistanceMeters>
 	      <Time><xsl:value-of select="$time"/></Time>
 	   </Trackpoint>
          </xsl:otherwise>
