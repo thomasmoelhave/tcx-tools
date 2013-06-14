@@ -44,6 +44,8 @@
 
 	     <DistanceMeters><xsl:value-of select="runSummary/distance * 1000"/></DistanceMeters>
 
+	     <Calories><xsl:value-of select="runSummary/calories"/></Calories>
+
               <Track>
 
                   <xsl:choose>
